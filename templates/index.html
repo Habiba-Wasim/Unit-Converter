@@ -1,64 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Converter</title>
-    <script>
-        async function convert() {
-            let category = document.getElementById("category").value;
-            let fromUnit = document.getElementById("fromUnit").value;
-            let toUnit = document.getElementById("toUnit").value;
-            let value = document.getElementById("value").value;
-
-            let response = await fetch("/convert", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ category, from_unit: fromUnit, to_unit: toUnit, value: parseFloat(value) })
-            });
-
-            let data = await response.json();
-            document.getElementById("result").innerText = `Converted Value: ${data.converted_value}`;
-        }
-    </script>
-</head>
-<body>
-    <h1>Unit Converter</h1>
-    <select id="category">
-        <option value="length">Length</option>
-        <option value="weight">Weight</option>
-        <option value="temperature">Temperature</option>
-    </select>
-    
-    <input type="number" id="value" placeholder="Enter value">
-    
-    <select id="fromUnit">
-        <option value="Meter">Meter</option>
-        <option value="Centimeter">Centimeter</option>
-        <option value="Kilometer">Kilometer</option>
-    </select>
-    
-    <select id="toUnit">
-        <option value="Meter">Meter</option>
-        <option value="Centimeter">Centimeter</option>
-        <option value="Kilometer">Kilometer</option>
-    </select>
-    
-    <button onclick="convert()">Convert</button>
-    <p id="result"></p>
-</body>
-</html> -->
-
-
-
-
-
-
-
-
-
-
-<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,90 +10,13 @@
     <div class="container">
         <h1>Unit Converter</h1>
 
-        <label for="category">Select Category:</label>
-        <select id="category">
-            <option value="length">Length</option>
-            <option value="weight">Weight</option>
-            <option value="temperature">Temperature</option>
-        </select>
-
-        <input type="number" id="value" placeholder="Enter value">
-
-        <select id="fromUnit">
-            <option value="Meter">Meter</option>
-            <option value="Kilometer">Kilometer</option>
-            <option value="Centimeter">Centimeter</option>
-        </select>
-
-        <select id="toUnit">
-            <option value="Meter">Meter</option>
-            <option value="Kilometer">Kilometer</option>
-            <option value="Centimeter">Centimeter</option>
-        </select>
-
-        <button onclick="convert()">Convert</button>
-        <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
-        <p id="result"></p>
-    </div>
-    
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
-</html> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Converter</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>Unit Converter</h1>
         <label for="category">Select Category:</label>
         <select id="category" onchange="populateUnits()">
             <option value="length">Length</option>
             <option value="weight">Weight</option>
             <option value="temperature">Temperature</option>
         </select>
+
         <div class="input-group">
             <div class="input-box">
                 <input type="number" id="value" placeholder="Enter value">
@@ -166,9 +28,9 @@
                 <select id="toUnit"></select>
             </div>
         </div>
+
         <button onclick="convert()">Convert</button>
         <button onclick="clearFields()">Clear</button>
-        <p class="formula-btn" id="formula-text" onclick="showFormula()">Formula</p>
         <div class="toggle-container">
             <button class="dark-mode-toggle" onclick="toggleDarkMode()">☀️</button>
         </div>
@@ -177,3 +39,4 @@
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
+
